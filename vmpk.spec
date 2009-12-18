@@ -10,7 +10,7 @@ Release:        %{release}
 Source:         http://sourceforge.net/projects/VMPK/files/%name-%version.tar.bz2
 URL:            http://vmpk.sourceforge.net
 License:        GPLv3+
-Group:          Applications/Multimedia
+Group:          Sound
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot 
 BuildRequires:  cmake alsa-lib-devel qt4-devel
 
