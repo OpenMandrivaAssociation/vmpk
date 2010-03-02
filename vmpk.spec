@@ -1,6 +1,6 @@
 %define name    vmpk
 %define version 0.3.1
-%define release %mkrel 1 
+%define release %mkrel 2 
 
 Name:           %{name} 
 Summary:        Virtual MIDI Piano Keyboard
@@ -25,30 +25,22 @@ Authors: Pedro Lopez-Cabanillas <plcl@users.sourceforge.net>
 
 %prep
 %setup -q
-#replace desktop file
-rm %{name}.desktop
-cat > %{name}.desktop << EOF
-[Desktop Entry]
-Name=VMPK
-Comment=Virtual MIDI Piano Keyboard
-Exec=%{_bindir}/%{name}
-Icon=vmpk
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
-EOF
-
 
 %build
 CXXFLAGS="$RPM_OPT_FLAGS -g -fexceptions" cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix}
-make %{?jobs:-j %jobs} VERBOSE=1
+%make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
+desktop-file-install --add-category="X-MandrivaLinux-Multimedia-Sound;" \
+                     --remove-category="Education;" \
+                     --remove-category="Midi;" \
+                     --remove-category="Music;" \
+                     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -72,4 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/applications/%name.desktop
 %{_datadir}/locale/*
+
+%changelog
 
