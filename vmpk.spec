@@ -1,6 +1,6 @@
 %define name    vmpk
-%define version 0.3.1
-%define release %mkrel 2 
+%define version 0.3.2
+%define release %mkrel 1
 
 Name:           %{name} 
 Summary:        Virtual MIDI Piano Keyboard
