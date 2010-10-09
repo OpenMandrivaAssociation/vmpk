@@ -1,5 +1,5 @@
 %define name    vmpk
-%define version 0.3.2
+%define version 0.3.3
 %define release %mkrel 1
 
 Name:           %{name} 
@@ -58,12 +58,10 @@ rm -rf %{buildroot}
 %dir %{_datadir}/icons/hicolor/48x48/apps
 %dir %{_datadir}/icons/hicolor/64x64/apps
 %dir %{_datadir}/icons/hicolor/scalable/apps
-%dir %{_datadir}/locale
 %{_bindir}/%name
 %{_datadir}/%name/*
 %{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/applications/%name.desktop
-%{_datadir}/locale/*
 
 %changelog
 
