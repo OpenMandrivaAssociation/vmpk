@@ -1,18 +1,16 @@
-%define name    vmpk
-%define version 0.4.0
-%define release %mkrel 1
-
-Name:           %{name}
+Name:           vmpk
 Summary:        Virtual MIDI Piano Keyboard
-Version:        %{version}
-Release:        %{release}
+Version:        0.5.0
+Release:        1
 
 Source:         http://sourceforge.net/projects/VMPK/files/%name-%version.tar.bz2
 URL:            http://vmpk.sourceforge.net
 License:        GPLv3+
 Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  cmake alsa-lib-devel qt4-devel jackit-devel
+BuildRequires:  cmake
+BuildRequires:  pkgconfig(alsa)
+BuildRequires:  pkgconfig(QtCore)
+BuildRequires:  pkgconfig(jack)
 BuildRequires:  desktop-file-utils
 
 %description
@@ -46,7 +44,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc NEWS README ChangeLog AUTHORS TODO COPYING
-%doc %{_mandir}/*
+%doc %{_mandir}/man1/*
 %dir %{_datadir}/%name
 %dir %{_datadir}/icons/hicolor
 %dir %{_datadir}/icons/hicolor/16x16
