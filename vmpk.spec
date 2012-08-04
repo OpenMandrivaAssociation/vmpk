@@ -9,7 +9,7 @@ License:        GPLv3+
 Group:          Sound
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(alsa)
-BuildRequires:  pkgconfig(QtCore)
+BuildRequires:  qt4-devel
 BuildRequires:  pkgconfig(jack)
 BuildRequires:  desktop-file-utils
 
