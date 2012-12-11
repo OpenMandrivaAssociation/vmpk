@@ -62,5 +62,39 @@ rm -rf %{buildroot}
 %{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/applications/%name.desktop
 
-%changelog
 
+
+%changelog
+* Sat Aug 04 2012 Frank Kober <emuse@mandriva.org> 0.5.0-1
++ Revision: 811740
+- Qt BR reverted to qt4-devel
+- new version 0.5.0
+
+* Sun Jun 12 2011 Frank Kober <emuse@mandriva.org> 0.4.0-1
++ Revision: 684330
+- new version 0.4.0
+  o jackit-devel added (new jack MIDI support)
+  o desktop-file-utils added
+
+* Sat Oct 09 2010 Frank Kober <emuse@mandriva.org> 0.3.3-1mdv2011.0
++ Revision: 584335
+- new version 0.3.3
+
+* Mon Jul 19 2010 Frank Kober <emuse@mandriva.org> 0.3.2-1mdv2011.0
++ Revision: 554950
+- new version 0.3.2
+
+* Tue Mar 02 2010 Frank Kober <emuse@mandriva.org> 0.3.1-2mdv2010.1
++ Revision: 513317
+- better destkop file install, spec cleanups
+
+* Fri Dec 18 2009 Stéphane Téletchéa <steletch@mandriva.org> 0.3.1-1mdv2010.1
++ Revision: 479930
+- Adjust group tag
+
+  + Frank Kober <emuse@mandriva.org>
+    - import vmpk
+
+
+* Thu Dec 17 2009 Frank Kober <emuse@users.sourceforge.net> 0.3.1-1mdv2010.0
+- import vmpk
