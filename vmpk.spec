@@ -1,7 +1,7 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
 Version:	0.5.1
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Sound
 Url:		http://vmpk.sourceforge.net
