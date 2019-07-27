@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   vmpk-0.5.1.tar.bz2: 0aedeeb2f0bdd341957f21cb94bfab10221fdc39
+sources:
+  vmpk-0.7.1.tar.bz2: 84b53b72e7315783d60c19ce7e91198221b4470c

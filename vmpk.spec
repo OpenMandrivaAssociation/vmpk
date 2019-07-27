@@ -1,16 +1,18 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
-Version:	0.5.1
-Release:	2
+Version:	0.7.1
+Release:	1
 License:	GPLv3+
 Group:		Sound
 Url:		http://vmpk.sourceforge.net
 Source0:	http://sourceforge.net/projects/VMPK/files/%name-%version.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
-BuildRequires:	qt4-devel
+BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(jack)
+BuildRequires:	pkgconfig(libpulse)
+BuildRequires:	pkgconfig(drumstick-rt)
 
 %description
 VMPK is a MIDI event generator/receiver. It doesn't produce any sound by
@@ -35,7 +37,7 @@ MIDI file player.
 %setup -q
 
 %build
-%cmake_qt4
+%cmake_qt5
 %make
 
 %install
