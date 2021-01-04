@@ -1,14 +1,25 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
-Version:	0.7.1
+Version:	0.8.0
 Release:	1
 License:	GPLv3+
 Group:		Sound
-Url:		http://vmpk.sourceforge.net
-Source0:	http://sourceforge.net/projects/VMPK/files/%name-%version.tar.bz2
+URL:            https://vmpk.sourceforge.io
+Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	qt5-devel
+BuildRequires:  cmake(Qt5LinguistTools)
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5DBus)
+BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(Qt5Help)
+BuildRequires:  pkgconfig(Qt5Network)
+BuildRequires:  pkgconfig(Qt5Svg)
+BuildRequires:  pkgconfig(Qt5Widgets)
+BuildRequires:  pkgconfig(Qt5X11Extras)
+BuildRequires:  pkgconfig(xcb)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(libpulse)
@@ -41,11 +52,9 @@ MIDI file player.
 %make
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 desktop-file-install --add-category="X-MandrivaLinux-Multimedia-Sound;" \
                      --remove-category="Education;" \
                      --remove-category="Midi;" \
                      --remove-category="Music;" \
                      --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-
-
