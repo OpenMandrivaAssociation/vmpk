@@ -40,7 +40,7 @@ MIDI file player.
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
 %{_datadir}/icons/hicolor/*/*/*
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/net.sourceforge.VMPK.desktop
 
 #----------------------------------------------------------------------------
 
