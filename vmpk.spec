@@ -1,6 +1,6 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
-Version:	0.8.3
+Version:	0.8.6
 Release:	1
 License:	GPLv3+
 Group:		Sound
