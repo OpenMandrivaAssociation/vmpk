@@ -34,7 +34,7 @@ Keyboard to display the played MIDI notes from another instrument or
 MIDI file player.
 
 %files
-%doc NEWS README ChangeLog AUTHORS TODO COPYING
+%doc NEWS ChangeLog AUTHORS TODO COPYING
 %doc %{_mandir}/man1/*
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
