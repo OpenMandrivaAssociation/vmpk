@@ -1,6 +1,6 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
-Version:	0.8.6
+Version:	0.8.7
 Release:	1
 License:	GPLv3+
 Group:		Sound
@@ -39,7 +39,7 @@ MIDI file player.
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/metainfo/net.sourceforge.VMPK.appdata.xml
+%{_datadir}/metainfo/net.sourceforge.VMPK.metainfo.xml
 %{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/applications/net.sourceforge.VMPK.desktop
 
