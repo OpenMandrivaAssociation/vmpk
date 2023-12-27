@@ -22,6 +22,8 @@ BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(drumstick-rt)
+BuildRequires:  pkgconfig(xkbcommon-x11)
+BuildRequires:  pkgconfig(vulkan)
 BuildRequires:  qt6-qtbase-theme-gtk3
 
 %description
