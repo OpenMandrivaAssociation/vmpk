@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(drumstick-rt)
+BuildRequires:  qt6-qtbase-theme-gtk3
 
 %description
 VMPK is a MIDI event generator/receiver. It doesn't produce any sound by
