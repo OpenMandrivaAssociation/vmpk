@@ -1,6 +1,6 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:		vmpk
-Version:	0.8.8
+Version:	0.8.10
 Release:	1
 License:	GPLv3+
 Group:		Sound
@@ -9,21 +9,20 @@ Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar
 
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
-BuildRequires:	qt5-devel
-BuildRequires:  cmake(Qt5LinguistTools)
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5DBus)
-BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5Help)
-BuildRequires:  pkgconfig(Qt5Network)
-BuildRequires:  pkgconfig(Qt5Svg)
-BuildRequires:  pkgconfig(Qt5Widgets)
-BuildRequires:  pkgconfig(Qt5X11Extras)
+BuildRequires:  cmake(Qt6LinguistTools)
+BuildRequires:  cmake(Qt6Core)
+BuildRequires:  cmake(Qt6DBus)
+BuildRequires:  cmake(Qt6Gui)
+BuildRequires:  cmake(Qt6Help)
+BuildRequires:  cmake(Qt6Network)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6Widgets)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(drumstick-rt)
+BuildRequires:  qt6-qtbase-theme-gtk3
 
 %description
 VMPK is a MIDI event generator/receiver. It doesn't produce any sound by
@@ -46,16 +45,14 @@ MIDI file player.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%cmake_qt5
-%make
+%cmake -DUSE_QT=6
+%make_build
 
 %install
 %make_install -C build
 desktop-file-install --add-category="X-MandrivaLinux-Multimedia-Sound;" \
                      --remove-category="Education;" \
-                     --remove-category="Midi;" \
-                     --remove-category="Music;" \
                      --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
