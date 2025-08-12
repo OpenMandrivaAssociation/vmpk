@@ -1,30 +1,34 @@
 Summary:	Virtual MIDI Piano Keyboard
-Name:		vmpk
-Version:	0.9.0
+Name:	vmpk
+Version:	0.9.1
 Release:	1
 License:	GPLv3+
-Group:		Sound
-URL:            https://vmpk.sourceforge.io
-Source0:        https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Group:	Sound
+Url:	https://vmpk.sourceforge.io
+Source0:	https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 
-BuildRequires:	cmake
+BuildRequires:	cmake >= 3.16
 BuildRequires:	desktop-file-utils
-BuildRequires:  cmake(Qt6LinguistTools)
-BuildRequires:  cmake(Qt6Core)
-BuildRequires:  cmake(Qt6DBus)
-BuildRequires:  cmake(Qt6Gui)
-BuildRequires:  cmake(Qt6Help)
-BuildRequires:  cmake(Qt6Network)
-BuildRequires:  cmake(Qt6Svg)
-BuildRequires:  cmake(Qt6Widgets)
-BuildRequires:  pkgconfig(xcb)
+BuildRequires:	gzip-utils
+BuildRequires:	qt6-qtbase-theme-gtk3
+BuildRequires:xsltproc
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6DBus)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6Help)
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:	cmake(Qt6Network)
+BuildRequires:	cmake(Qt6Svg)
+BuildRequires:	cmake(Qt6Widgets)
 BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(drumstick-rt) >= 2.10.0
+BuildRequires:	pkgconfig(drumstick-widgets)
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(jack)
 BuildRequires:	pkgconfig(libpulse)
-BuildRequires:	pkgconfig(drumstick-rt)
-BuildRequires:  pkgconfig(xkbcommon-x11)
-BuildRequires:  pkgconfig(vulkan)
-BuildRequires:  qt6-qtbase-theme-gtk3
+BuildRequires:	pkgconfig(xcb)
+BuildRequires:	pkgconfig(xkbcommon-x11)
+BuildRequires:	pkgconfig(vulkan)
 
 %description
 VMPK is a MIDI event generator/receiver. It doesn't produce any sound by
@@ -40,21 +44,33 @@ MIDI file player.
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_datadir}/metainfo/net.sourceforge.VMPK.metainfo.xml
-%{_datadir}/icons/hicolor/*/*/*
 %{_datadir}/applications/net.sourceforge.VMPK.desktop
+%{_datadir}/icons/hicolor/*x*/apps/%{name}.png
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+%{_datadir}/metainfo/net.sourceforge.VMPK.metainfo.xml
 
 #----------------------------------------------------------------------------
 
 %prep
 %autosetup -p1
 
+
 %build
-%cmake -DUSE_QT=6
+%cmake
 %make_build
+
 
 %install
 %make_install -C build
-desktop-file-install --add-category="X-MandrivaLinux-Multimedia-Sound;" \
-                     --remove-category="Education;" \
-                     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+
+# Fix desktop file
+desktop-file-edit --add-category="X-OpenMandrivaLinux-Multimedia-Sound;" \
+							--remove-category="Education;" \
+							%{buildroot}%{_datadir}/applications/net.sourceforge.VMPK.desktop
+
+# Fix gzipped-svg-icon
+(
+cd %{buildroot}%{_iconsdir}/hicolor/scalable/apps/
+zcat %{name}.svgz > %{name}.svg && rm -f %{name}.svgz
+)
+
