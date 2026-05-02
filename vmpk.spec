@@ -1,12 +1,11 @@
 Summary:	Virtual MIDI Piano Keyboard
 Name:	vmpk
-Version:	0.9.1
+Version:	0.9.2
 Release:	1
 License:	GPLv3+
 Group:	Sound
 Url:	https://vmpk.sourceforge.io
 Source0:	https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-
 BuildRequires:	cmake >= 3.16
 BuildRequires:	desktop-file-utils
 BuildRequires:	gzip-utils
