@@ -9,6 +9,7 @@ Source0:	https://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 BuildRequires:	cmake >= 3.16
 BuildRequires:	desktop-file-utils
 BuildRequires:	gzip-utils
+BuildRequires:	make
 BuildRequires:	qt6-qtbase-theme-gtk3
 BuildRequires:xsltproc
 BuildRequires:	cmake(Qt6Core)
